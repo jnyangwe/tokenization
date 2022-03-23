@@ -1,10 +1,11 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.6.0;
 
 import "./Crowdsale.sol";
 
 contract MyTokenSale is Crowdsale {
 
-    KycContract kyc;
+    // KycContract kyc;
     constructor(
         uint256 rate,    // rate in TKNbits
         address payable wallet,
