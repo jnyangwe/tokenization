@@ -19,7 +19,11 @@ class App extends Component {
 
         // Get the contract instance.
         //this.networkId = await this.web3.eth.net.getId(); <<- this doesn't work with MetaMask anymore
-        this.networkId = await this.web3.eth.getChainId();      
+        this.networkId = await this.web3.eth.getChainId(); 
+        console.log(this.networkId); 
+        console.log(this.accounts);    
+        console.log(KycContract.networks)
+        console.log(MyToken.networks)
 
         this.myToken = new this.web3.eth.Contract(
           MyToken.abi,
@@ -58,6 +62,8 @@ class App extends Component {
 
   handleKycSubmit = async () => {
     const {kycAddress} = this.state;
+    console.log(this.accounts);
+    console.log(this.state);
     await this.kycContract.methods.setKycCompleted(kycAddress).send({from: this.accounts[0]});
     alert("Account "+kycAddress+" is now whitelisted");
   }
